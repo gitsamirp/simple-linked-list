@@ -1,7 +1,26 @@
 export class Element {
+  #value = null;
+  #next = null;
+
   constructor(value) {
-    this.value = value;
-    this.next = null;
+    this.#value = value;
+    this.#next = null;
+  }
+
+  get value() {
+    return this.#value;
+  }
+
+  set value(newValue) {
+    this.#value = newValue;
+  }
+
+  get next() {
+    return this.#next;
+  }
+
+  set next(next) {
+    this.#next = next;
   }
 }
 
