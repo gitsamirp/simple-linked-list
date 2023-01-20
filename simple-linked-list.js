@@ -26,6 +26,7 @@ export class Element {
 
 export class List {
   #head = null;
+  #length = 0;
 
   constructor(values = []) {
     values.forEach(value => this.add(new Element(value)));
@@ -34,16 +35,12 @@ export class List {
   add(nextValue) {
     nextValue.next = this.#head;
     this.#head = nextValue;
+
+    this.#length += 1;
   }
 
   get length() {
-    let count = 0;
-    let node = this.head;
-    while (node) {
-      count += 1;
-      node = node.next;
-    }
-    return count;
+    return this.#length;
   }
 
   get head() {
